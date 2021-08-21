@@ -20,61 +20,61 @@
                 <h2>Customize your Blue @4-inch iMac with Apple M1 chip</h2>
                 <p>Apple M1 chip with 8‑core CPU, 8‑core GPU, and 16‑core Neural Engine 8GB unified memory 256GB SSD storage 13-inch Retina display with True Tone Backlit Magic Keyboard - US English Touch Bar and Touch ID Two Thunderbolt / USB 4 ports</p>
                 <!-- memory  -->
-                <section>
+                <section class="mb-2">
                     <h4>Memory</h4>
-                    <button class="btn border border-dark rounded">8GB unified memory</button>
-                    <button class="btn border border-dark rounded">16GB unified memory</button>
+                    <button id="memory-button-8gb" class="btn border border-dark rounded">8GB unified memory</button>
+                    <button id="memory-button-16gb" class="btn border border-dark rounded">16GB unified memory</button>
 
                 </section>
                 <!-- storage  -->
-                <section>
-                    <h4>Memory</h4>
-                    <button class="btn border border-dark rounded">256GB SSD storage</button>
-                    <button class="btn border border-dark rounded">512GB SSD storage</button>
-                    <button class="btn border border-dark rounded">1TB SSD storage</button>
+                <section class="mb-2">
+                    <h4>Storage</h4>
+                    <button id="storage-button-256gb" class="btn border border-dark rounded">256GB SSD storage</button>
+                    <button id="storage-button-512gb" class="btn border border-dark rounded">512GB SSD storage</button>
+                    <button id="storage-button-1tb" class="btn border border-dark rounded">1TB SSD storage</button>
 
                 </section>
                 <!-- delivery  -->
-                <section>
-                    <h4>Memory</h4>
+                <section class="mb-2">
+                    <h4>Choose your delivery option</h4>
                     <button class="btn border border-dark rounded">Friday, Aug 25 FREE Prime Delivery</button>
                     <button class="btn border border-dark rounded">Friday, Aug 21 Delivery Charge $20</button>
                 </section>
 
                 <!-- calculation section -->
-                <section class="mt-5">
+                <section class="mt-5 mb-2">
                     <table class="table">
 
                         <tbody>
                             <tr>
                                 <th scope="row">Best Price</th>
-                                <td>$1299</td>
+                                <td>$<span id="best-price">1299</span></td>
 
                             </tr>
                             <tr>
                                 <th scope="row">Extra Memory Cost</th>
-                                <td>$0</td>
+                                <td>$<span id="extra-memory-cost">0</span></td>
 
                             </tr>
                             <tr>
                                 <th scope="row">Extra Storage Cost</th>
-                                <td>$0</td>
+                                <td>$<span id="extra-storage-cost">0</span></td>
 
                             </tr>
                             <tr>
                                 <th scope="row">Delivery Charge</th>
-                                <td>$0</td>
+                                <td>$<span id="delivery-cost">0</span></td>
 
                             </tr>
                         </tbody>
                         <tfoot>
                             <th scope="row">Total Price</th>
-                            <td>$1299</td>
+                            <td>$<span id="total-cost">1299</span></td>
                         </tfoot>
                     </table>
                 </section>
                 <!-- promo code section -->
-                <section>
+                <section class="mb-2">
                     <p class="mb-0">Add promo code</p>
                     <input type="text">
                     <button class="btn border border-dark rounded btn-danger">Apply</button>
@@ -87,7 +87,7 @@
 
     </main>
     <footer>
-        <h1 class="text-center">Total: $1299 </h1>
+        <h1 class="text-center">Total: $<span id="total-price">1299</span> </h1>
     </footer>
 
     <!-- external js file  -->
