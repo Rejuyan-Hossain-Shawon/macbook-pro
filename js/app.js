@@ -115,7 +115,8 @@ document.getElementById("promo-button").addEventListener("click", function() {
     const promoCode = document.getElementById("promo-code").value;
     if (promoCode.toLowerCase() == "stevekaku") {
         const totalPriceNumber = textToNumber("total-price");
-        const offer = totalPriceNumber / 20;
+
+        const offer = totalPriceNumber * (20 / 100);
         const newTotalPrice = totalPriceNumber - offer;
         document.getElementById("total-price").innerText = newTotalPrice;
     } else {
