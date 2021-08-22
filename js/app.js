@@ -1,22 +1,14 @@
-// common used function
-
+///* common used function  */
 
 // total calculation update
 
 function totalCostUpdate() {
     const extraMemoryCostNumber = textToNumber("extra-memory-cost");
-
     const extraStorageCostNumber = textToNumber("extra-storage-cost");
-
     const deliveryCostNumber = textToNumber("delivery-cost");
-
-
     const totalCost = extraMemoryCostNumber + extraStorageCostNumber + deliveryCostNumber;
     document.getElementById("total-cost").innerText = totalCost + 1299;
     document.getElementById("total-price").innerText = totalCost + 1299;
-
-
-
 
 }
 
@@ -31,69 +23,42 @@ function textToNumber(id) {
 
 
 }
+/* // memory section btn handleing */
 
-
-
-
-// memory section btn handleing
-
-
-// 8gb button handleing
-document.getElementById("memory-button-8gb").addEventListener("click", function() {
-
+// memory section update with two button
+function memorySectionUpdate(isAdding) {
     const extraMemoryCost = document.getElementById("extra-memory-cost");
-
     const extraMemoryCostNumber = parseFloat(extraMemoryCost.innerText);
+    if (isAdding == false) {
+        if (extraMemoryCostNumber == 90) {
+            const newExtraMemoryCostNumber = extraMemoryCostNumber - 90;
+            extraMemoryCost.innerText = newExtraMemoryCostNumber;
 
-    if (extraMemoryCostNumber == 90) {
-        const newExtraMemoryCostNumber = extraMemoryCostNumber - 90;
-
-        extraMemoryCost.innerText = newExtraMemoryCostNumber;
-        console.log(extraMemoryCost.innerText);
-
-
-
+        }
+    } else if (isAdding = true) {
+        if (extraMemoryCostNumber < 90) {
+            const newExtraMemoryCostNumber = extraMemoryCostNumber + 90;
+            extraMemoryCost.innerText = newExtraMemoryCostNumber;
+        }
     }
-
     totalCostUpdate();
+}
 
-
-
-
-
-
-
-
+// 8gb button handling
+document.getElementById("memory-button-8gb").addEventListener("click", function() {
+    memorySectionUpdate(false);
 })
 
 // // 16gb btn handling
 document.getElementById("memory-button-16gb").addEventListener("click", function() {
-
-    const extraMemoryCost = document.getElementById("extra-memory-cost");
-
-    const extraMemoryCostNumber = parseFloat(extraMemoryCost.innerText);
-    if (extraMemoryCostNumber < 90) {
-        const newExtraMemoryCostNumber = extraMemoryCostNumber + 90;
-        extraMemoryCost.innerText = newExtraMemoryCostNumber;
-
-    }
-
-
-
-    // total cost update 
-
-
-
-
-    totalCostUpdate();
-
-
+    memorySectionUpdate(true);
 })
 
 
 /* 
 storage section handling
 */
+
 
 // 256gb storage handling
 document.getElementById("storage-button-256gb").addEventListener("click", function() {
@@ -130,8 +95,6 @@ document.getElementById("storage-button-512gb").addEventListener("click", functi
 })
 
 // 1tb storage handling
-
-
 document.getElementById("storage-button-1tb").addEventListener("click", function() {
     const extraStorageCost = document.getElementById("extra-storage-cost");
     const extraStorageCostNumber = parseFloat(extraStorageCost.innerText);
@@ -150,32 +113,32 @@ document.getElementById("storage-button-1tb").addEventListener("click", function
 
 /* 
 delivery section btn handling
-
 */
-
-// 25 aug delivery
-document.getElementById("delivery-25-button").addEventListener("click", function() {
+function deliverySectionUpdate(isAdding) {
     const deliveryCost = document.getElementById("delivery-cost");
     const deliveryCostNumber = parseFloat(deliveryCost.innerText);
-    if (deliveryCostNumber == 20) {
+    if (deliveryCostNumber == 20 && isAdding == false) {
         const newDeliveryCost = deliveryCostNumber - 20;
         deliveryCost.innerText = newDeliveryCost;
 
-    }
-    totalCostUpdate();
-
-})
-
-// 21 aug delivery
-document.getElementById("delivery-21-button").addEventListener("click", function() {
-    const deliveryCost = document.getElementById("delivery-cost");
-    const deliveryCostNumber = parseFloat(deliveryCost.innerText);
-    if (deliveryCostNumber == 0) {
+    } else if (deliveryCostNumber == 0 && isAdding == true) {
         const newDeliveryCost = deliveryCostNumber + 20;
         deliveryCost.innerText = newDeliveryCost;
 
     }
     totalCostUpdate();
+
+}
+
+// 25 aug delivery
+document.getElementById("delivery-25-button").addEventListener("click", function() {
+    deliverySectionUpdate(false);
+
+})
+
+// 21 aug delivery
+document.getElementById("delivery-21-button").addEventListener("click", function() {
+    deliverySectionUpdate(true);
 
 })
 
@@ -191,8 +154,6 @@ document.getElementById("promo-button").addEventListener("click", function() {
         const offer = totalPriceNumber / 20;
         const newTotalPrice = totalPriceNumber - offer;
         document.getElementById("total-price").innerText = newTotalPrice;
-
-
     } else {
         console.log(alert("Your promo Code not correct"));
     }
