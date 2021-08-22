@@ -11,7 +11,6 @@ function totalCostUpdate() {
     document.getElementById("total-price").innerText = totalCost + 1299;
 
 }
-
 // element catch and convert it to number
 
 function textToNumber(id) {
@@ -28,18 +27,10 @@ function textToNumber(id) {
 // memory section update with two button
 function memorySectionUpdate(isAdding) {
     const extraMemoryCost = document.getElementById("extra-memory-cost");
-    const extraMemoryCostNumber = parseFloat(extraMemoryCost.innerText);
-    if (isAdding == false) {
-        if (extraMemoryCostNumber == 90) {
-            const newExtraMemoryCostNumber = extraMemoryCostNumber - 90;
-            extraMemoryCost.innerText = newExtraMemoryCostNumber;
-
-        }
-    } else if (isAdding = true) {
-        if (extraMemoryCostNumber < 90) {
-            const newExtraMemoryCostNumber = extraMemoryCostNumber + 90;
-            extraMemoryCost.innerText = newExtraMemoryCostNumber;
-        }
+    if (isAdding == true) {
+        extraMemoryCost.innerText = 180;
+    } else {
+        extraMemoryCost.innerText = 0;
     }
     totalCostUpdate();
 }
@@ -51,63 +42,41 @@ document.getElementById("memory-button-8gb").addEventListener("click", function(
 
 // // 16gb btn handling
 document.getElementById("memory-button-16gb").addEventListener("click", function() {
-    memorySectionUpdate(true);
-})
+        memorySectionUpdate(true);
+    })
+    /* 
+    storage section handling
+    */
+function storageSectionUpdate(id) {
+    const extraStorageCost = document.getElementById("extra-storage-cost");
 
+    if (id == "256gb") {
+        extraStorageCost.innerText = 0;
+    } else if (id == "512gb") {
+        extraStorageCost.innerText = 100;
+    } else if (id == "1tb") {
+        extraStorageCost.innerText = 180;
+    }
 
-/* 
-storage section handling
-*/
+    totalCostUpdate();
 
-
+}
 // 256gb storage handling
 document.getElementById("storage-button-256gb").addEventListener("click", function() {
-    const extraStorageCost = document.getElementById("extra-storage-cost");
-    const extraStorageCostNumber = parseFloat(extraStorageCost.innerText);
-    if (extraStorageCostNumber == 100) {
-        const newExtraStorageCost = extraStorageCostNumber - 100;
-        extraStorageCost.innerText = newExtraStorageCost;
-
-    } else if (extraStorageCostNumber == 180) {
-        const newExtraStorageCost = extraStorageCostNumber - 180;
-        extraStorageCost.innerText = newExtraStorageCost;
-
-    }
-    totalCostUpdate();
+    storageSectionUpdate("256gb");
 
 })
 
 // 512 gb storage handling
 document.getElementById("storage-button-512gb").addEventListener("click", function() {
-    const extraStorageCost = document.getElementById("extra-storage-cost");
-    const extraStorageCostNumber = parseFloat(extraStorageCost.innerText);
-    if (extraStorageCostNumber == 180) {
-        const newExtraStorageCost = extraStorageCostNumber - 80;
-        extraStorageCost.innerText = newExtraStorageCost;
 
-    } else if (extraStorageCostNumber == 0) {
-        const newExtraStorageCost = extraStorageCostNumber + 100;
-        extraStorageCost.innerText = newExtraStorageCost;
-
-    }
-    totalCostUpdate();
+    storageSectionUpdate("512gb");
 
 })
 
 // 1tb storage handling
 document.getElementById("storage-button-1tb").addEventListener("click", function() {
-    const extraStorageCost = document.getElementById("extra-storage-cost");
-    const extraStorageCostNumber = parseFloat(extraStorageCost.innerText);
-    if (extraStorageCostNumber == 100) {
-        const newExtraStorageCost = extraStorageCostNumber + 80;
-        extraStorageCost.innerText = newExtraStorageCost;
-
-    } else if (extraStorageCostNumber == 0) {
-        const newExtraStorageCost = extraStorageCostNumber + 180;
-        extraStorageCost.innerText = newExtraStorageCost;
-
-    }
-    totalCostUpdate();
+    storageSectionUpdate("1tb");
 
 })
 
@@ -116,15 +85,10 @@ delivery section btn handling
 */
 function deliverySectionUpdate(isAdding) {
     const deliveryCost = document.getElementById("delivery-cost");
-    const deliveryCostNumber = parseFloat(deliveryCost.innerText);
-    if (deliveryCostNumber == 20 && isAdding == false) {
-        const newDeliveryCost = deliveryCostNumber - 20;
-        deliveryCost.innerText = newDeliveryCost;
-
-    } else if (deliveryCostNumber == 0 && isAdding == true) {
-        const newDeliveryCost = deliveryCostNumber + 20;
-        deliveryCost.innerText = newDeliveryCost;
-
+    if (isAdding == false) {
+        deliveryCost.innerText = 0;
+    } else {
+        deliveryCost.innerText = 20;
     }
     totalCostUpdate();
 
